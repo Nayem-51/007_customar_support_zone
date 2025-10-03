@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
-  const [setActive] = useState(null);
+  const [active, setActive] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = ["Home", "FAQ", "Changelog", "Blog", "Download", "Contact"];
@@ -20,7 +20,7 @@ const Navbar = () => {
                 <button
                   key={item}
                   onClick={() => setActive(item)}
-                  className={`px-3 py-2 rounded-md text-sm font-medium`}
+                  className={`px-3 py-2 rounded-md text-sm font-medium ${active === item ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'}`}
                 >
                   {item}
                 </button>
