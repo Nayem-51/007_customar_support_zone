@@ -1,11 +1,14 @@
 import React from 'react';
 import Navbar from './components/Navbar';
+import Banner from './components/Banner';
 
 const App = () => {
   return (
-    <div>
+    <div className="bg-gray-50 min-h-screen">
       <Navbar />
-      <h1 className="text-3xl font-bold">CS-Ticket System</h1>
+      <div className="pt-20 px-6">
+        <Banner />
+      </div>
     </div>
   );
 };
