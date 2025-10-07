@@ -1,5 +1,3 @@
-````markdown
-# React Interview Questions
 
 ## 1. What is JSX, and why is it used?
 
@@ -7,7 +5,7 @@
 It allows you to write HTML-like code inside JavaScript.
 
 Example:
-```jsx
+```
 const element = <h1>Hello, World!</h1>;
 ````
 
