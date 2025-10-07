@@ -1,89 +1,116 @@
-# Customer Support Zone
+````markdown
+# React Interview Questions
 
-This project is a React-based **Customer Support Zone** designed to display customer tickets, track progress, and mark them as resolved. It follows a Figma design and includes additional features like status management, responsiveness, and toast notifications using **React-Toastify**.
+## 1. What is JSX, and why is it used?
 
----
+**JSX (JavaScript XML)** is a syntax extension for JavaScript used in **React** to describe what the UI should look like.  
+It allows you to write HTML-like code inside JavaScript.
 
-## 📌 Features & Requirements 
+Example:
+```jsx
+const element = <h1>Hello, World!</h1>;
+````
 
-### ✅ Navbar 
+JSX is converted into:
 
-* Website name/logo on the **left**.
-* Menu items and **New Ticket** button on the **right**.
+```js
+const element = React.createElement('h1', null, 'Hello, World!');
+```
 
-### ✅ Banner
+**Why it’s used:**
 
-* Banner section designed according to Figma.
-* Shows a **linear gradient** background.
-* Displays ticket statistics:
-
-  * **In Progress Count**
-  * **Resolved Count** (default = 0).
-
-### ✅ Main Section
-
-1. **JSON Data **
-
-   * Created **10–15 tickets** with the following properties:
-
-     * `id`, `title`, `description`, `customer`, `priority`, `status`, `createdAt`.
-
-2. **Ticket Cards**
-
-   * Display all ticket information in a **card layout**.
-   * Cards arranged in a **2-column grid** (left side).
-
-3. **Task Status Section**
-
-   * Clicking a card adds it to the **Task Status Section** (right side) and shows alert. It will increase the count of in-progress in banner
-   * Task Status shows:
-
-     * Ticket Title
-     * **Complete Button**
-   * Clicking **Complete Button**:
-
-     * show alert
-     
-
-
-### ✅ Footer 
-
-* Designed according to Figma.
-
-### ✅ Responsiveness 
-
-* The entire website is **responsive** for mobile devices.
-
-### ✅ Readme: 
-Create a README file to answer the following question-
-
- - What is JSX, and why is it used?
- - What is the difference between State and Props?
- - What is the useState hook, and how does it work?
- - How can you share state between components in React?
- - How is event handling done in React?
+* Makes code easier to read and write
+* Allows embedding JavaScript expressions
+* Provides better error checking and optimization
 
 ---
 
-### 
+## 2. What is the difference between State and Props?
 
-## 📌 Challenge Requirements 
-
-### 🔔 React-Toastify 
-
-* Used **React-Toastify** to replace all alerts with stylish toast notifications.
-
-### 📝 Task Completion Logic 
-
-Clicking **Complete Button**:
-
-1. It is **removed from Task Status**. 
-2. It is added to the **Resolved List**. 
-3. The **In Progress count decreases**. 
-4. The **Resolved count increases**. 
-5. It is removed from the **Customer Tickets list**. 
-
+| Feature    | State                                                   | Props                                                      |
+| ---------- | ------------------------------------------------------- | ---------------------------------------------------------- |
+| Definition | Data owned and managed by the component itself          | Inputs passed from a parent component to a child component |
+| Mutability | Mutable (can be changed using `setState` or `useState`) | Immutable (cannot be changed by the child)                 |
+| Usage      | Used to store dynamic data that can change over time    | Used to pass data or functions between components          |
+| Example    | `const [count, setCount] = useState(0)`                 | `<Child message="Hello" />`                                |
 
 ---
 
+## 3. What is the useState hook, and how does it work?
 
+The `useState` hook allows React functional components to have state variables.
+
+Syntax:
+
+```jsx
+const [state, setState] = useState(initialValue);
+```
+
+Example:
+
+```jsx
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <button onClick={() => setCount(count + 1)}>
+      Clicked {count} times
+    </button>
+  );
+}
+```
+
+How it works:
+
+* `useState` returns a state variable and a function to update it.
+* When the state changes, React re-renders the component.
+
+---
+
+## 4. How can you share state between components in React?
+
+1. **Lift State Up** – Move the shared state to the nearest common parent and pass it down as props.
+
+   ```jsx
+   function Parent() {
+     const [value, setValue] = useState("");
+     return (
+       <>
+         <Child1 value={value} setValue={setValue} />
+         <Child2 value={value} />
+       </>
+     );
+   }
+   ```
+
+2. **Context API** – For sharing state globally across multiple components.
+
+3. **State Management Libraries** – Use Redux, Zustand, or Recoil for larger applications.
+
+---
+
+## 5. How is event handling done in React?
+
+React handles events similar to the DOM but with a few differences:
+
+* Use **camelCase** for event names.
+* Pass a **function reference**, not a string.
+
+Example:
+
+```jsx
+function ClickMe() {
+  const handleClick = () => {
+    alert("Button clicked!");
+  };
+
+  return <button onClick={handleClick}>Click Me</button>;
+}
+```
+
+```
+
+---
+
+Would you like me to make the section titles smaller (like `###` instead of `##`) for a more compact GitHub look?
+```
