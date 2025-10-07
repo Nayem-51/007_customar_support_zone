@@ -109,8 +109,3 @@ function ClickMe() {
 ```
 
 ```
-
----
-
-Would you like me to make the section titles smaller (like `###` instead of `##`) for a more compact GitHub look?
-```
