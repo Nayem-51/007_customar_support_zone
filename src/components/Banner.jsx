@@ -1,8 +1,8 @@
 import React from "react";
 import vector1 from "../assets/vector1.png";
 
-const Banner = ({ inProgressCount, resolvedCount }) => {
-    return (
+const Banner=({inProgressCount, resolvedCount }) => {
+    return(
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
             <div className="relative overflow-hidden rounded-xl shadow-lg p-8 md:p-10 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-500 text-white text-center">
                 <img
